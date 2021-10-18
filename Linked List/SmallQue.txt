@@ -1,0 +1,5 @@
+1. What's a void pointer?
+-> A void pointer is a pointer which does not have any return type, but it does have
+    an address that it points to, it just doesn't what type of data it is pointing to
+    it could int, char, or whatever like a struct
+
