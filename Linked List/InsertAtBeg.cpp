@@ -1,6 +1,7 @@
 //Linked List: Inserting a node at beginning
 #include<stdlib.h>
 #include<stdio.h>
+#include<iostream>
 
  struct Node {
      int data;
