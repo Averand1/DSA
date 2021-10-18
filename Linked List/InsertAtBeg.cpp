@@ -8,8 +8,8 @@
      struct Node *next; 
 };
 
-struct Node  *head; // global variable, can be accessed anywhere
-void Insert(int x){
+// struct Node  *head; // global variable, can be accessed anywhere
+Node* Insert(Node *head, int x){
     
     //Here we declared a temp pointer of type Node
     //The reason we used malloc is it's return type is void pointer, check SmallQue.txt
@@ -22,30 +22,31 @@ void Insert(int x){
     //temp->next = NULL; //This is only used when the list is empty
     temp->next = head; //this will cover the scenario where the list is empty and non empty
     head = temp;
+    return head;
 
 //     if(head != NULL) temp->next = head;
 //     head = temp;
 }
-void Print() {
-    struct Node* temp = head;
+void Print(Node* head) {
+
     printf("List is: ");
-    while(temp != NULL)
+    while(head != NULL)
     {
-        printf("%d ", temp->data);
-        temp = temp->next;
+        printf("%d ", head->data);
+        head = head->next;
     }
     printf("\n");
 } 
 
 int main() {
-        head = NULL; //Empty list;
+        Node *head = NULL; //Empty list;
         printf("How many numbers?\n");
         int n, i, x;
         scanf("%d", &n);
         for(i=0;i<n;i++){
             printf("Enter the number\n");
             scanf("%d", &x);
-            Insert(x);
-            Print();
+            head = Insert(head, x);
+            Print(head);
         } 
 }
