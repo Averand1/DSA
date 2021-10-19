@@ -1,57 +1,90 @@
-#include<bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
-struct node {
+//node structure
+struct Node {
     int data;
-    struct node *next;
+    Node* next;
 };
 
-/* Function to push nodes in a linked list. */
-void push(struct node **head_ref, int data) {
-    struct node *node;
-    node = (struct node*)malloc(sizeof(struct node));
-    node->data = data;
-    node->next = (*head_ref);
-    (*head_ref) = node;
-}
+class LinkedList {
+  private:
+    Node* head;
+  public:
+    LinkedList(){
+      head = NULL;
+    }
  
-/* Function to reverse the nodes in a linked list. */
-void reverse(struct node **head_ref) {
-    struct node *temp = NULL;
-    struct node *prev = NULL;
-    struct node *current = (*head_ref);
-    while(current != NULL) {
-        temp = current->next;
-        current->next = prev;
-        prev = current;
-        current = temp;
+    //Add new element at the end of the list
+    void push_back(int newElement) {
+      Node* newNode = new Node();
+      newNode->data = newElement;
+      newNode->next = NULL; 
+      if(head == NULL) {
+        head = newNode;
+      } else {
+        Node* temp = head;
+        while(temp->next != NULL)
+          temp = temp->next;
+        temp->next = newNode;
+      }    
     }
-    (*head_ref) = prev;
-}
+    
+    //reverse the list
+    void reverseList() {
+      if(head != NULL) {
+        Node* prevNode = head;
+        Node* tempNode = head;
+        Node* curNode = head->next;
+        
+        prevNode->next = NULL;
+        
+        while(curNode != NULL) {
+          tempNode = curNode->next;
+          curNode->next = prevNode;
+          prevNode = curNode;
+          curNode = tempNode;
+        }
 
-/* Function to print the nodes in a linked list. */
-void printnodes(struct node *head) {
-    while(head != NULL) {
-        cout<<head->data<<" ";
-        head = head->next;
-    }
-}
+        head = prevNode;
+      }
+    } 
 
-/* Driver function to check the above algorithm. */
+    //display the content of the list
+    void PrintList() {
+      Node* temp = head;
+      if(temp != NULL) {
+        cout<<"The list contains: ";
+        while(temp != NULL) {
+          cout<<temp->data<<" ";
+          temp = temp->next;
+        }
+        cout<<"\n";
+      } else {
+        cout<<"The list is empty.\n";
+      }
+    }   
+};
+
+// test the code 
 int main() {
-    struct node *head = NULL;
-    push(&head, 10);
-    push(&head, 11);
-    push(&head, 18);
-    push(&head, 60);
-    push(&head, 94);
-    push(&head, 100);
-    cout << "List before reversing" << endl;
-    printnodes(head);
-    reverse(&head);
-    cout << endl;
-    cout << "List after reversing"<<endl;
-    printnodes(head);
-    return 0;
+  LinkedList MyList;
+
+  //Add five elements in the list.
+  MyList.push_back(10);
+  MyList.push_back(20);
+  MyList.push_back(30);
+  MyList.push_back(40);
+  MyList.push_back(50);
+
+  //Display the content of the list.
+  MyList.PrintList();
+  
+  //Reversing the list.
+  MyList.reverseList();
+  
+  //Display the content of the list.
+  MyList.PrintList();
+  
+  return 0; 
 }
