@@ -1,0 +1,7 @@
+vector<int> v1 = {1,2,3,4}
+1: v1.front()
+-> will return 1 (first element of the vector array)
+2: v1.back()
+-> will return 4 (last element of the vector array)
+3: v1.size() 
+->  v1.size()  and v1.capacity()
