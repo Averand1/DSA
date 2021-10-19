@@ -9,7 +9,8 @@ using namespace std;
 int main() {
     //Creating vector
     vector<int> v1 = {1,2,3}; //vector<DataType> VariableName = {Elements of the said DataType}
-    cout <<v1.front()<<endl; //Access vector elements
+    cout <<v1.front()<<endl; //Access vector elements from head and tail using front() and back()
+    cout<<v1.capacity()<<endl;
 }   
 
 
