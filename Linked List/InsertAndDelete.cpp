@@ -136,7 +136,7 @@ int main() {
     a.insert_end(5);
     a.insert_start(2);
     a.insert_start(6);
-    a.delete_position(2);
+    //a.delete_position(2);
     
     a.display();
 }
