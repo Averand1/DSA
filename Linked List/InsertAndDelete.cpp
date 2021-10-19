@@ -3,6 +3,8 @@
 // temp->next is same as (*temp).next 
 #include<stdio.h>
 #include<stdlib.h>
+#include<iostream>
+using namespace std;
 struct Node {
     int data;
     struct Node *next;
@@ -78,14 +80,63 @@ void delete_first() {
     delete temp;
 }
 
+
+
+void delete_last() {
+    //Two temp pointer current and prev
+    //prev node will point to second to the last node 
+    // current node will point to last node (the node to be deleted)
+    //make prev node as tail
+    Node *current =  new Node;
+    Node *prev = new Node;
+    current = head;
+    while(current->next != NULL) {
+        prev = current;
+        current = current->next;
+    }
+    tail = prev;
+    prev->next = NULL;
+    delete current;
+}
+
+/* Ask user for position to be deleted
+/We make two temp pointers and move through the LL
+until we reach our specific node
+Now we delete our current node
+And pass addr of node after it to prev pointer
+This way, current node is removed from the LL and the link is established between prev and node*/
+void delete_position(int idx) {
+    Node *current = new Node;
+    Node *prev = new Node;
+    current = head;
+    for(int i=1; i<idx; i++){
+        prev = current;
+        current = current->next;
+    }
+    prev->next = current->next;
+
+}
+
+
+
 void display() {
     Node *temp = new Node;
     temp = head;
     while(temp != NULL) {
         //will loop until temp becomes NULL
-        printf("%d", temp->data);
+        cout<<temp->data<<"\t"; 
         temp = temp->next;
     }
 }
 
 };
+
+int main() {
+    linked_list a;
+    a.insert_end(5);
+    a.insert_start(2);
+    a.insert_start(6);
+    a.delete_position(2);
+    
+    a.display();
+}
