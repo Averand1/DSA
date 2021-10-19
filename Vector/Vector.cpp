@@ -8,9 +8,9 @@ using namespace std;
 
 int main() {
     //Creating vector
-    vector<int> v1 = {1,2,3}; //vector<DataType> VariableName = {Elements of the said DataType}
-    cout <<v1.front()<<endl; //Access vector elements from head and tail using front() and back()
-    cout<<v1.capacity()<<endl;
+    vector<int> v1 = {1,2,3,4}; //vector<DataType> VariableName = {Elements of the said DataType}
+    v1.push_back(5);
+    cout<<v1.capacity()<<endl; //The capacity increased by 4 when we tried add 5
 }   
 
 
