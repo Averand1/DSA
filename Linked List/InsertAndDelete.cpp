@@ -1,4 +1,4 @@
-//Linked List: Insert at the beginning
+//Linked List: Insert and Delete 
 //The newly added node will become the head of the linked list
 // temp->next is same as (*temp).next 
 #include<stdio.h>
@@ -20,13 +20,13 @@ linked_list() {
 }
 
 void insert_start(int n) {
-    //New node should be connected to the first node
-    //can be achieved by putting addr of head in nxt field of new node
+    //New node should be connected to the previous head
+    //can be achieved by putting addr of head in next field of new node
     // our new node should be the new head
-    Node *temp = new Node;
-    temp->data = n;
-    temp->next = head;
-    head = temp;
+    Node *temp = new Node; 
+    (*temp).data = n;    
+    temp->next = head; //temp->next = address of head 2(temp) -> 1(head)
+    head = temp; // head = temp 2(head) -> 1
 }
 
 
@@ -34,16 +34,16 @@ void insert_start(int n) {
 these two nodes should be accessible by our, 
 We make two nodes called current and previous
 the new node is placed between them*/
-void insert_position(int idx, int n) {
+void insert_position(int pos, int n) {
     //pass the addr of new node in next field of prev (prev->next = temp)
     //pass the addr of current node in next field of new node (temp->next = current)
     Node *prev = new Node;
     Node *current = new Node;
     Node *temp = new Node;
     current = head;
-    for(int i=1; i<idx; i++) {
+    for(int i=1; i<pos; i++) {
         prev = current;
-        current = current->next;
+        current = current->next;   
     }
     temp->data = n;
     prev->next = temp;
@@ -124,7 +124,7 @@ void display() {
     temp = head;
     while(temp != NULL) {
         //will loop until temp becomes NULL
-        cout<<temp->data<<"\t"; 
+        cout<<temp->data<<"\t";
         temp = temp->next;
     }
 }
@@ -133,10 +133,10 @@ void display() {
 
 int main() {
     linked_list a;
-    a.insert_end(5);
+    a.insert_start(14);
     a.insert_start(2);
-    a.insert_start(6);
-    //a.delete_position(2);
-    
+    a.insert_start(3);
+    a.insert_start(4);
+    a.insert_position(2, 8);
     a.display();
 }
