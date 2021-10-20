@@ -9,12 +9,12 @@
 };
 
 // struct Node  *head; // global variable, can be accessed anywhere
-Node* Insert(Node *head, int x){
+Node *Insert(Node *head, int x){
     
     //Here we declared a temp pointer of type Node
     //The reason we used malloc is it's return type is void pointer, check SmallQue.txt
 
-    Node* temp = (Node*)malloc(sizeof(struct Node));
+    Node *temp = (Node*)malloc(sizeof(struct Node));
 
     //We're dereferencing the pointer variable here ((*temp).data is same as temp->data)
 
