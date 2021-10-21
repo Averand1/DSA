@@ -1,12 +1,11 @@
-// Stack implementation in C++
+// Stack implementation in C
 
+#include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
-
-using namespace std;
 
 #define MAX 10
-int size = 0;
+
+int count = 0;
 
 // Creating a stack
 struct stack {
@@ -38,34 +37,36 @@ int isempty(st *s) {
 // Add elements into stack
 void push(st *s, int newitem) {
   if (isfull(s)) {
-    cout << "STACK FULL";
+    printf("STACK FULL");
   } else {
     s->top++;
     s->items[s->top] = newitem;
   }
-  size++;
+  count++;
 }
 
 // Remove element from stack
 void pop(st *s) {
   if (isempty(s)) {
-    cout << "\n STACK EMPTY \n";
+    printf("\n STACK EMPTY \n");
   } else {
-    cout << "Item popped= " << s->items[s->top];
+    printf("Item popped= %d", s->items[s->top]);
     s->top--;
   }
-  size--;
-  cout << endl;
+  count--;
+  printf("\n");
 }
 
+// Print elements of stack
 void printStack(st *s) {
   printf("Stack: ");
-  for (int i = 0; i < size; i++) {
-    cout << s->items[i] << " ";
+  for (int i = 0; i < count; i++) {
+    printf("%d ", s->items[i]);
   }
-  cout << endl;
+  printf("\n");
 }
 
+// Driver code
 int main() {
   int ch;
   st *s = (st *)malloc(sizeof(st));
@@ -81,6 +82,6 @@ int main() {
 
   pop(s);
 
-  cout << "\nAfter popping out\n";
+  printf("\nAfter popping out\n");
   printStack(s);
 }
