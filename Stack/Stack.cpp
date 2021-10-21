@@ -1,5 +1,7 @@
 // Stack implementation in C
 
+// Stack is linear DS following principle of LIFO (Last-In-First-Out)
+
 #include <stdio.h>
 #include <stdlib.h>
 

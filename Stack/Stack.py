@@ -1,5 +1,7 @@
 # Stack implementation in python
 
+#Stack is linear DS following principle of LIFO (Last-In-First-Out)
+
 
 # Creating a stack
 def create_stack():
