@@ -18,7 +18,7 @@ struct Array
      *x=*y;
      *y=temp;
  }
-int BinarySearch(struct Array arr,int key)
+int BinarySearch(struct Array arr,int key) //Imperative
 {
     int l,mid,h;
     l=0;
@@ -35,7 +35,7 @@ int BinarySearch(struct Array arr,int key)
     }
 return -1;
 }
-int RBinSearch(int a[],int l,int h,int key)
+int RBinSearch(int a[],int l,int h,int key) //Recursive Binary
 {
     
     int mid=0;
