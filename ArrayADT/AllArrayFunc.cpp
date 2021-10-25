@@ -325,7 +325,7 @@ int main()
     int ch;
     int x,index;
 
-    printf("Enter Size of Array");
+    printf("Enter Size of Arra: ");
     scanf("%d", &arr1.size);
     arr1.A=(int*)malloc(arr1.size*sizeof(int));
     do 
@@ -344,7 +344,7 @@ int main()
     switch(ch)
     {
         case 1: printf("Enter an element and index ");
-            scanf("%d%d", &x, &index);
+            scanf("%d %d", &x, &index);
             Insert(&arr1, index, x);
             break;
         case 2: printf("Enter index ");
