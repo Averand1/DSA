@@ -325,7 +325,7 @@ int main()
     int ch;
     int x,index;
 
-    printf("Enter Size of Arra: ");
+    printf("Enter Size of Array: ");
     scanf("%d", &arr1.size);
     arr1.A=(int*)malloc(arr1.size*sizeof(int));
     do 
