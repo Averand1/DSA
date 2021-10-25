@@ -332,10 +332,10 @@ int main()
     {
     printf("Menu\n");
     printf("1. Insert\n");
-    printf("1. Delete\n");
-    printf("1. Search\n");
-    printf("1. Sum\n");
-    printf("1. Display\n");
+    printf("2. Delete\n");
+    printf("3. Search\n");
+    printf("4. Sum\n");
+    printf("5. Display\n");
     printf("6. Exit\n");
 
     printf("Enter your choice ");
