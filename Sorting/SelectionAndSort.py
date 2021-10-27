@@ -16,7 +16,7 @@ def SelectionSort(arr):
         newArr.append(arr.pop(smallest))
     return newArr
 
-RandList = np.random.randint(low=0, high=1000, size=(20))
+RandList = np.random.randint(low=-10, high=10, size=(10))
 print(RandList)
 List = RandList.tolist()
 print(SelectionSort(List))
