@@ -6,14 +6,14 @@ int main()
     int l=1;
     int h=12;
     int n=10;
-    int H[13]; // [13] was missing
+    int H[13]; // Consider the elements in this array to be all 0
     for(int i=0;i<n;i++)
-    {
-        H[A[i]]++;
+    {   //for example
+        H[A[i]]++; //Here if we find A[i] = 4, H[4]++ meaning the H[4]=1; 
     };
     for(int i=l;i<h;i++)
     { // i was not declared
-        if(H[i]==0) // [ ] should be used
+        if(H[i]==0) // if the element in H[i] is still 0, we have found the missing element
         printf("%d ",i);
     };
 return 0; 
