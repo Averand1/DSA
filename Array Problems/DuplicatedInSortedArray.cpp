@@ -25,7 +25,7 @@ int main() {
             j++; //keep increasing j by one
             //Index diff between j&i will be no of times elements were repeated
             printf("\n%d is appearing %d times", A[i], j-i);
-            i=j-1; //extra checks
+            i=j-1; //i will be set to to J's first position and the loop continues
         };
     };
     return 0;
