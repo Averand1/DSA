@@ -1,39 +1,40 @@
-#include<stdio.h>
+#include<iostream>
 
-//Bubble sort works by swapping the adjacent elements if they are in wrong order
-// Ex: 14523 -> 14254 ->14235 - > 12435 -> 12345
-
-//Will have to write a function that swaps element
-void swap(int *xp, int *yp)
+void swap(int *x, int *y)  //swap function to change the elements at certain indexes
 {
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
+    int temp=*x;
+    *x=*y;
+    *y=temp;
 }
 
-//A function to implement bubble sort
-void bubbleSort(int arr[], int n) {
-    int i, j;
-    for(i = 0; i<n-1; i++) //loop to access each array element
-        for(j=0; j<n-i-1; j++) //loop to compare array element
-            if(arr[j] > arr[j+1]) //compare two adjacent elements, try changing > to <
-               swap(&arr[j], &arr[j+1]);
+void Bubble(int A[], int n) //taking an array input and it's size
+{
+    int i, j, flag=0; //flag becomes 1 when an element is swapped if not it's 0
+    for(i=0;i<n-1;i++) 
+    {
+        flag=0; //setting flag 0 everytime
+        for(j=0; j<n-i-1; j++) //loop n-1-i as the no of elements to sort reduce after each iteration
+        {
+            if(A[j]>A[j+1]) //if current element is greater than the one ahead
+            {
+                swap(&A[j], &A[j+1]); //we swap it's position
+                flag=1; //as we swapped the position, we set flag to 1
+            };
+        };
+        if(flag==0) break; //if flag is 0, it means theres no swap
+    };
+};
 
-}
 
-void printArray(int arr[], int size){
-    int i;
-    for(i=0; i<size; i++)
-        printf("%d ", arr[i]);
+int main()
+{
+    int A[] = {3,7,9,10,6,5,12,4,11,2}, n=10;
+    Bubble(A,10);
+
+    for(int i=0;i<10;i++)
+        printf("%d ", A[i]);
     printf("\n");
-}
+    
 
-//Driver program to test above functions
-int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr)/sizeof(arr[0]); // Dividing size of whole arr by it's first element
-    bubbleSort(arr, n);
-    printf("Sorted array:  \n");
-    printArray(arr, n);
     return 0;
 }
